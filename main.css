@@ -1,0 +1,135 @@
+html, body {
+    background-color: black;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+button {
+    outline: none;
+    text-decoration: none;
+    border: none;
+    background-color: transparent;
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+}
+
+.custom-img {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    height: 60%;
+    background-image: url("https://www.lavanguardia.com/files/article_main_microformat/uploads/2020/05/18/5fa9165659446.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, .2);
+}
+
+.file-label {
+    font-family: Arial;
+    font-weight: bold;
+    color: white;
+    width: 400px;
+    display: block;
+    background-color: rgba(0, 0, 0, .6);
+    margin: auto;
+    cursor: pointer;
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px dashed rgba(255, 255, 255, .6);
+}
+
+.audio-input {
+    display: none;
+}
+
+.audio-title {
+    font-size: 2.5rem;
+    font-family: Arial;
+    font-weight: bolder;
+    color: white;
+    margin: 1rem 0 0 5rem;
+}
+
+.audio-player-section {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 40%;
+    z-index: 2;
+    width: 100%;
+    height: auto;
+    min-height: 20rem;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+}
+
+.play-btn {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    cursor: pointer;
+    background-image: url("assets/play-icon.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: #000;
+}
+
+.song-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    height: auto;
+    margin-top: 1.5rem;
+}
+
+.song-item {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    width: calc(80% - 8rem);
+    height: 5rem;
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: 12px;
+    padding: 0 4rem;
+}
+
+.song-item .play-btn {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.song-title {
+    font-family: Arial;
+    font-weight: bolder;
+    font-size: 1.2rem;
+    color: white;
+
+    text-overflow: ellipsis;
+    display: block;
+    width: 40%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.song-duration {
+    justify-self: flex-end;
+    color: white;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 1.2rem;
+}

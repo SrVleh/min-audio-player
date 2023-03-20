@@ -6,9 +6,18 @@
     <title>Mini audio player</title>
 </head>
 <body>
-    <input id="file-input" type="file" accept="mp3" multiple="true">
-    <audio id="audio-player" controls="controls"></audio>
+    <div class="page-container">
+        <div class="custom-img">
+            <label for="file-input" class="file-label">Select files...</label>
+            <input class="audio-input" id="file-input" type="file" accept="mp3" multiple="true">
+        </div>
 
-    <script src="main.js"></script>
+        <div class="audio-player-section">
+            <div class="song-list" id="song-list">
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
 </body>
 </html>
