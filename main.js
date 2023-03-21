@@ -1,3 +1,11 @@
+let listOfImages = [
+    "https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd9de33d5-f786-406b-866c-4e8086819787_1280x720.jpeg",
+    "https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fdb64cd7f-5b94-4cb4-a532-09fed651d48c_1280x720.jpeg",
+    "https://media.istockphoto.com/id/1193307437/vector/voice_recgn_4.jpg?s=612x612&w=0&k=20&c=pL0GswbfQ1g-a1UC9bB2ae5e9hBowVfhzPUjndBEgGo=",
+    "https://images.nightcafe.studio/jobs/vRpVPDPFYTtLg6QVpOtt/vRpVPDPFYTtLg6QVpOtt_4x.jpg?tr=w-9999,c-at_max",
+    "https://images.nightcafe.studio/jobs/HGjF23bXBMeIWa8CN7Xq/HGjF23bXBMeIWa8CN7Xq_4x.jpg?tr=w-9999,c-at_max"
+]
+
 let input = document.querySelector('#file-input');
 let songListElement = document.querySelector("#song-list");
 let songItem;
@@ -24,6 +32,8 @@ function handleTemplate() {
                   <div class="box box3"></div>
                   <div class="box box4"></div>
                   <div class="box box5"></div>
+                  <div class="box box6"></div>
+                  <div class="box box7"></div>
                 </div>
                 <audio id="audio-player${index}"  preload="metadata" src="${ URL.createObjectURL(file) }"></audio>
             </div>
@@ -31,8 +41,9 @@ function handleTemplate() {
     })
 
     formatAndAssignToHTML(songItem, songListElement);
-    getTotalTime()
-    addListeners()
+    getTotalTime();
+    addListeners();
+    selectRandomBackground();
 }
 
 function formatAndAssignToHTML(item, parent) {
@@ -79,11 +90,28 @@ function addListeners() {
 }
 
 function playClicked(id){
-    document.getElementById(`audio-player${id}`).play()
-    document.getElementById(`wave-anim${id}`).classList.toggle('hide')
+    let audioPlayer = document.getElementById(`audio-player${id}`)
+    if (audioPlayer.paused) {
+        audioPlayer.play()
+        document.getElementById(`wave-anim${id}`).classList.toggle('hide')
+    }
 }
 
 function pauseClicked(id){
-    document.getElementById(`audio-player${id}`).pause()
-    document.getElementById(`wave-anim${id}`).classList.toggle('hide')
+    let audioPlayer = document.getElementById(`audio-player${id}`)
+    if (!audioPlayer.paused) {
+        audioPlayer.pause()
+        document.getElementById(`wave-anim${id}`).classList.toggle('hide')
+    }
+}
+
+function selectRandomBackground() {
+    let customImg = document.getElementById("custom-img");
+    customImg.style.backgroundImage = 'url(' + listOfImages[getRandomInt(0, listOfImages.length - 1)] + ')';
+}
+
+function getRandomInt(min = 0, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
