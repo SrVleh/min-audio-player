@@ -46,6 +46,14 @@ button {
     padding: 20px;
     border-radius: 15px;
     border: 2px dashed rgba(255, 255, 255, .6);
+    transition: all 0.5s ease-in-out;
+}
+
+.file-label:hover {
+    transform: scale(1.1);
+    color: #F7934C;
+    backdrop-filter: blur(15px);
+    border: 2px dashed #F7934C;
 }
 
 .audio-input {
@@ -75,13 +83,18 @@ button {
 }
 
 .btn {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2.2rem;
+    height: 2.2rem;
     border-radius: 50%;
-    cursor: pointer;
-    background-repeat: no-repeat;
-    background-size: cover;
     background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(1.2);
 }
 
 .play-btn {
@@ -142,7 +155,7 @@ button {
 
 /* VOLUME ELEMENTS */
 
-.volume-container {
+.container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -150,15 +163,6 @@ button {
     height: 100%;
 }
 
-.volume {
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 50%;
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    cursor: pointer;
-}
 .vol-plus{
     background-image: url("assets/plus-icon.svg");
 }
@@ -212,8 +216,8 @@ button {
     display: flex;
     justify-content: space-between;
     height: 3.5rem;
-    --boxSize: 5px;
-    --gutter: 8px;
+    --boxSize: .3rem;
+    --gutter: .6rem;
     width: calc((var(--boxSize) + var(--gutter)) * 5);
 }
 

@@ -18,12 +18,14 @@ function handleTemplate() {
     songItem = Array.from(input.files).map((file, index) => {
         return [`
             <div class="song-item">
-                <button id="play-btn${index}" class="btn play-btn"></button>
-                <button id="pause-btn${index}" class="btn pause-btn"></button>
+                <div class="container">
+                    <button id="play-btn${index}" class="btn play-btn"></button>
+                    <button id="pause-btn${index}" class="btn pause-btn"></button>
+                </div>
                 <p class="song-title">${ file.name }</p>
-                <div class="volume-container">
-                    <button id="volume-up${index}" class="volume vol-plus"></button>
-                    <button id="volume-down${index}" class="volume vol-minus" onclick="document.getElementById('audio-player${index}').volume-=.1"></button>
+                <div class="container">
+                    <button id="volume-up${index}" class="btn vol-plus"></button>
+                    <button id="volume-down${index}" class="btn vol-minus" onclick="document.getElementById('audio-player${index}').volume-=.1"></button>
                 </div>
                 <p id="totalTime${index}" class="song-duration"></p>
                 <div id="wave-anim${index}" class="boxContainer hide">
@@ -48,7 +50,7 @@ function handleTemplate() {
 
 function formatAndAssignToHTML(item, parent) {
     let modifiedItem = item.join("");
-    parent.innerHTML = modifiedItem
+    parent.innerHTML = modifiedItem;
 }
 
 function getTotalTime() {
