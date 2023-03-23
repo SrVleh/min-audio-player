@@ -1,6 +1,15 @@
+/* COLORS */
+:root {
+    --primary: #F7934C;
+    --background: #000;
+    --text-color: #eaeaea;
+}
+/* END COLORS */
+
+/* GLOBALS */
 html, body {
-    background-color: black;
     margin: 0;
+    background-color: var(--background);
 }
 
 p {
@@ -9,10 +18,11 @@ p {
 
 button {
     outline: none;
-    text-decoration: none;
     border: none;
+    text-decoration: none;
     background-color: transparent;
 }
+/* END GLOBALS */
 
 .page-container {
     display: flex;
@@ -27,33 +37,34 @@ button {
     align-items: center;
     width: 100%;
     height: 60%;
-    background-position: center;
-    background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     background-color: rgba(0, 0, 0, .2);
+    background-repeat: no-repeat;
 }
 
 .file-label {
-    font-family: Arial;
-    font-weight: bold;
-    color: white;
-    width: 40%;
-    display: block;
-    background-color: rgba(0, 0, 0, .6);
-    margin: auto;
     cursor: pointer;
-    text-align: center;
-    padding: 20px;
-    border-radius: 15px;
+    display: block;
+    width: 40%;
+    margin: auto;
     border: 2px dashed rgba(255, 255, 255, .6);
+    border-radius: 15px;
+    padding: 1rem;
+    text-align: center;
+    font-family: Arial;
+    font-size: 2.2vw;
+    font-weight: bold;
+    color: var(--text-color);
+    background-color: rgba(0, 0, 0, .6);
     transition: all 0.5s ease-in-out;
 }
 
 .file-label:hover {
-    transform: scale(1.1);
-    color: #F7934C;
+    border: 2px dashed var(--primary);
+    color: var(--primary);
     backdrop-filter: blur(15px);
-    border: 2px dashed #F7934C;
+    transform: scale(1.1);
 }
 
 .audio-input {
@@ -61,35 +72,35 @@ button {
 }
 
 .audio-title {
-    font-size: 2.5rem;
-    font-family: Arial;
-    font-weight: bolder;
-    color: white;
     margin: 1rem 0 0 5rem;
+    font-family: Arial;
+    font-size: 2.2vw;
+    font-weight: bolder;
+    color: var(--text-color);
 }
 
 .audio-player-section {
+    z-index: 2;
     position: absolute;
     display: flex;
     flex-direction: column;
     top: 40%;
-    z-index: 2;
     width: 100%;
     height: auto;
-    min-height: 20rem;
+    min-height: 30rem;
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
 }
 
 .btn {
+    cursor: pointer;
     width: 2.2rem;
     height: 2.2rem;
     border-radius: 50%;
-    background-position: center;
     background-size: contain;
+    background-position: center;
     background-repeat: no-repeat;
-    cursor: pointer;
     transition: all 0.3s ease-in-out;
 }
 
@@ -127,30 +138,29 @@ button {
     gap: 2rem;
     width: calc(80% - 8rem);
     height: 5rem;
-    background-color: rgba(255, 255, 255, .1);
     border-radius: 12px;
     padding: 0 4rem;
+    background-color: rgba(255, 255, 255, .1);
 }
 
 .song-title {
-    font-family: Arial;
-    font-weight: bolder;
-    font-size: 1.2rem;
-    color: white;
-
-    text-overflow: ellipsis;
     display: block;
     width: 40%;
+    font-family: Arial;
+    font-size: 1.8vw;
+    font-weight: bolder;
     overflow: hidden;
+    text-overflow: ellipsis;
     white-space: nowrap;
+    color: var(--text-color);
 }
 
 .song-duration {
     justify-self: flex-end;
-    color: white;
+    color: var(--text-color);
     font-family: Arial;
+    font-size: 1.8vw;
     font-weight: bold;
-    font-size: 1.2rem;
 }
 
 /* VOLUME ELEMENTS */
@@ -174,9 +184,7 @@ button {
     display: none;
 }
 
-
 /* WAVE ANIMATION */
-
 @keyframes quiet {
     25%{
         transform: scaleY(.6);
@@ -225,7 +233,7 @@ button {
     transform: scaleY(.4);
     height: 100%;
     width: var(--boxSize);
-    background: #F7934C;
+    background: var(--primary);
     animation-duration: 1.2s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
